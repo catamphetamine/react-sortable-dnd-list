@@ -41,7 +41,7 @@ body {
   margin-bottom: 7px;
 }
 
-.list__item.is-dragging {
+.list__item--dragged {
   box-shadow: 0 0 24px rgba(0,0,0,0.1);
   opacity: 0.8;
 }
