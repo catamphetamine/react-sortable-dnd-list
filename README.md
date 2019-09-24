@@ -55,7 +55,7 @@ function ItemComponent({
   ...rest
 }) {
   return (
-    <div {...rest} className={`list__item ${dragging ? 'is-dragging' : ''}`}>
+    <div {...rest} className={`list__item ${dragged ? 'is-dragging' : ''}`}>
       <div className="list__item-content">
         <div className="list__item-title">
           {title}

@@ -248,11 +248,11 @@ export default function SortableList({
 					{...itemComponentProps}
 					key={i}
 					dragging={dragging ? true : false}
-					dragged={dragging && dragging.initialPosition === position}
+					dragged={dragging && position === draggedItemPosition.current.previous}
 					style={(dragging || willEndDragging) ? getItemStyle(
 						position === draggedItemPosition.current.previous,
-						itemShiftsY.current[position],
 						willEndDragging,
+						itemShiftsY.current[position],
 						animationDuration,
 						animationEasing
 					) : TRANSFORM_NONE}>
@@ -275,8 +275,10 @@ SortableList.propTypes = {
 
 const TRANSFORM_NONE = { transform: 'none' }
 
-function getItemStyle(isDragged, shiftY, willEndDragging, animationDuration, animationEasing) {
+function getItemStyle(isDragged, willEndDragging, shiftY, animationDuration, animationEasing) {
 	const style = {
+		// `position: relative` is for `z-index` to work.
+		position: 'relative',
 		transition: `all ${animationDuration}ms ${animationEasing}`
 	}
 	if (isDragged) {
