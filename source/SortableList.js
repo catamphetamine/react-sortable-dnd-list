@@ -13,12 +13,12 @@ import PropTypes from 'prop-types'
 export default function SortableList({
 	value: items,
 	onChange,
-	component: Component,
+	component: Component = ListComponent,
 	itemComponent: ItemComponent,
 	itemComponentProps,
 	dragHandleDataAttribute,
-	animationDuration,
-	animationEasing,
+	animationDuration = 200,
+	animationEasing = 'ease-out',
 	...rest
 }) {
 	const list = useRef()
@@ -297,12 +297,6 @@ const ListComponent = React.forwardRef(({ children, ...rest }, ref) => (
 		{children}
 	</div>
 ))
-
-SortableList.defaultProps = {
-	component: ListComponent,
-	animationDuration: 200,
-	animationEasing: 'ease-out'
-}
 
 // Interactive elements aren't draggable.
 const IGNORE_CLICKS_INSIDE_TAGS = [
