@@ -266,11 +266,11 @@ export default function SortableList({
 SortableList.propTypes = {
 	value: PropTypes.arrayOf(PropTypes.any).isRequired,
 	onChange: PropTypes.func.isRequired,
-	component: PropTypes.elementType.isRequired,
+	component: PropTypes.elementType,
 	itemComponent: PropTypes.elementType.isRequired,
 	itemComponentProps: PropTypes.object,
-	animationDuration: PropTypes.number.isRequired,
-	animationEasing: PropTypes.string.isRequired
+	animationDuration: PropTypes.number,
+	animationEasing: PropTypes.string
 }
 
 const TRANSFORM_NONE = { transform: 'none' }
